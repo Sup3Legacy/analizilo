@@ -9,3 +9,5 @@ description = "Some utilities for parssing esperanto words and sentences. WIP"
 license = "GPL-3.0-or-later"
 
 [dependencies]
+aho-corasick = "0.7.18"
+lazy_static = "1.4.0"
