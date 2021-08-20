@@ -1,0 +1,11 @@
+[package]
+name = "analizilo"
+version = "0.0.1"
+edition = "2018"
+authors = ["Constantin Gierczak--Galle <constantin.gierczak-galle@ens.fr>"]
+repository = "https://github.com/Sup3Legacy/analizilo"
+keywords = ["esperanto", "parsing", "natural-language"]
+description = "Some utilities for parssing esperanto words and sentences. WIP"
+license = "GPLv3"
+
+[dependencies]
