@@ -1,5 +1,3 @@
-
-
 pub enum FixPriority {
     Prefix,
     Suffix,

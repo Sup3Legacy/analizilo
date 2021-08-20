@@ -6,8 +6,8 @@ use crate::*;
 const PREFIXES: [&str; 4] = ["bo", "ge", "ekster", "ek"];
 const SUFFIXES: [&str; 1] = ["lol"];
 const RADIX: [&str; 4] = ["manĝ", "kur", "ir", "san"];
-const ALL_TOKENS: [&str; 9] = [
-    "manĝ", "kur", "ir", "san", "bo", "ge", "ekster", "ek", "bone",
+const ALL_TOKENS: [&str; 13] = [
+    "manĝ", "kur", "ir", "san", "bo", "ge", "ekster", "ek", "bone", "kol", "eg", "o", "koleg",
 ];
 
 lazy_static! {
@@ -132,6 +132,7 @@ fn parse_src_aux(
     vector: &mut Vec<(bool, Vec<&'static str>)>,
     long_index: usize,
 ) -> usize {
+    //println!("Lel {:#?}", vector);
     match parse_fragment(src) {
         Extend::None => {
             vector[long_index].0 = false;
@@ -140,7 +141,7 @@ fn parse_src_aux(
         Extend::Some((unique_tok, tok_len)) => {
             vector[long_index].1.push(unique_tok);
             if src.len() == tok_len {
-                return long_index;
+                return long_index + 1;
             }
             parse_src_aux(&src[tok_len..], vector, long_index)
         }
@@ -149,9 +150,10 @@ fn parse_src_aux(
             vector[long_index].1.push(tok_vec.first().unwrap().0);
             let mut new_long_index = long_index;
             let mut init = true;
+            let temp_copy = vector[long_index].1.clone();
             for (tok, tok_len) in tok_vec {
                 if !init {
-                    vector.push((true, vector[long_index].1.clone()));
+                    vector.push((true, temp_copy.clone()));
                 }
                 vector[new_long_index].1.pop();
                 vector[new_long_index].1.push(tok);
