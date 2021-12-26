@@ -6,8 +6,8 @@ use crate::*;
 const PREFIXES: [&str; 4] = ["bo", "ge", "ekster", "ek"];
 const SUFFIXES: [&str; 1] = ["lol"];
 const RADIX: [&str; 4] = ["manĝ", "kur", "ir", "san"];
-const ALL_TOKENS: [&str; 13] = [
-    "manĝ", "kur", "ir", "san", "bo", "ge", "ekster", "ek", "bone", "kol", "eg", "o", "koleg",
+const ALL_TOKENS: [&str; 14] = [
+    "manĝ", "kur", "ir", "san", "bo", "ge", "ekster", "ek", "bon", "kol", "eg", "o", "koleg", "e",
 ];
 
 lazy_static! {
